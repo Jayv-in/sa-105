@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap%27');
+/*Pour que le scrolling soit automatique*/ 
+html{
+
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+/*Les polices utilisés, la couleur du fond avec background-image*/
+body {
+    margin: 0 auto;
+    height: 100vh;  
+    text-align: center;
+    font-family: 'Caveat', sans-serif;
+    color: #fff;
+    animation: slide 30s ease infinite;
+    background-image: url("images/Futur.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+    
+}
+.my-button {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 15px;
+}
+.sec{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
+}
+.sec h1{
+  font-family: 'Caveat';
+  font-size: 5rem;
+  color: rgb(0, 0, 0);
+}
+
+/*la manière dont les texte et l'images vont être affichés, tout est aligné et centré*/
+.sec2{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  position: relative; 
+   background-color: blueviolet;
+  background-size: cover;
+}
+/*Définit la taille de la phrase en h1, ici "Si j'étais ..., je serais :"*/
+.sec2 h1{
+  margin: 0;
+  padding: 0;
+  font-size: 3.3rem;
+  top: 15px;
+  left: 0px;
+  right: 0px;
+  
+}
+
+/*Definit comment va être affichés les textes de justifications*/
+.sec2 .text{
+  width: 50vw;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  width: 38%;
+  margin-top: 20px;
+ 
+}
+
+.sec2 img{
+    display: block;
+    border-radius: 10px;
+    margin-inline: auto;
+    width: 30vw;
+    height: 45%;
+    transition: all .4s ease;
+    bottom: 0;
+    right: 0;
+    
+}
+
+section{
+  height: 100vh;
+  margin: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*Menu de navigation*/
+.navigation{
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  font-size: 1.6rem;
+  width: 90vw;
+}
+
+/*Comment va être affiché le titre, couleur, fond etc..*/
+.title{
+text-align: center;
+font-size: 10rem;
+margin-left: auto;
+margin-right: auto;
+width: 7em;
+top: 66px;
+}
+
+/*Style du formulaire*/
+  input[type=text], textarea, input[type=email] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
+    resize: vertical;
+  }
+  label{margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;}
+
+
+  
+  
+  
+  /*Comment va être affiché le formulaire*/
+  .container {
+    box-sizing : border-box;
+    border-radius:10px;
+    background-color:#000000;
+    padding:15px;
+    width: 100%;
+    max-width: 600px;
+    margin:0 auto;
+    color: rgb(255, 255, 255);
+    
+  }
+
+          /* pied de page*/
+          .contenu {
+            flex: 1 0 auto;
+        }
+        footer {
+            flex-shrink: 0;
+            border-top: 1px solid #f1f1f1;
+            width: 100%;
+            color: #f1f1f1;
+            
+        }
+        .legal-text {
+          color: #000000; 
+          font-size: 50px;
+       }
+       .footer-right {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          font-size:30px;
+          
+          
+       }
+       /*lorsque le pop up est affiché*/
+       .modal {
+           display: none; 
+           position: fixed; 
+           z-index: 1; 
+           left: 0;
+           top: 0;
+           width:100%; 
+           height: 100%; 
+           overflow: auto; 
+           background-color: rgba(104, 4, 253, 0.599); 
+       }
+        
+        .contenu-footer {
+            width: 1200px;
+            text-align: ju;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            text-align:  center;
+            font-size: 1.2em;
+            padding: 50px 0 100px;
+            
+        }
+        
+        .block {
+            width: 30%;
+        }
+        
+        h4{
+          font-size: 1.7em;
+        }
+
+        h3{
+          font-size: 2em;
+        }
+
+
+
+
+

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Portrait Chinois de Jayvin </title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <section class="sec">
+        <h1 class="title"> Portrait Chinois de Jayvin <br></h1>
+        <button class="my-button" onclick="location.href='#section1'">Démarrer</button>
+    <div id="section1">
+   
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+ 
+    </section>
+<div id="list-analogies"></div>
+
+<section>
+ <div class="container">
+    <div class="list-analogies"
+
+        <h2>Si j’étais <span id="analogieSuggeree"></span>, je serais <span id="valeurAnalogieSuggeree"></span>.
+        </h2>
+        
+
+    </div>
+
+    <form class="form"> 
+        <br>
+        <label for="analogie">Et si c'était a vous de choisir </label>
+        <br>
+        <input type="text" id="analogie" placeholder="Analogie" name="analogie" required>
+        <br>
+        <label for="valeurAnalogie">Vous auriez été ?</label>
+        <br>
+        <input type="text" id="valeurAnalogie" placeholder="Valeur analogie" name="valeurAnalogie" required>
+        <br>
+        <label for="courriel">Votre adresse mail :</label>
+        <br>
+        <input type="email" id="courriel" placeholder="Saisir votre E-mail"name="courriel" required>
+        <br>
+        <input type="button" id="envoi" value="Envoyer le message !">
+        <div id="messageApresEnvoi"></div>
+    </form>
+</div>
+
+</section>
+
+
+//appel du js pour envoyer les données au prof
+<script src="data.js"></script>
+<script>
+    //detecte si quand tu envoie les analogies, cela est bien reçus ou non
+    document.querySelector("#envoi").addEventListener('click', function (e) {
+        var urlVisitee = "https://perso-etudiant.u-pem.fr/~gambette/portrait/api.php?format=json&login=gambette&courriel=" + document.querySelector("#courriel").value + "&message=Si j'étais ... " + document.querySelector("#analogie").value + " je serais ... " + document.querySelector("#valeurAnalogie").value;
+        fetch(urlVisitee).then(function (response) {
+            response.json().then(function (data) {
+
+                if(data.status == "success"){
+                    document.querySelector("#messageApresEnvoi").innerHTML = "Votre message a été reçu";
+                }else{
+                    document.querySelector("#messageApresEnvoi").innerHTML = "Votre message n'a pas pu étre reçu";
+                }
+            })
+        })
+
+    })
+    //detecte quand tu écris dans un champ de texte
+    document.querySelector("#analogie").addEventListener('keyup', function (e) {
+        console.log("Champ analogie modifié");
+
+        document.querySelector("#analogieSuggeree").innerHTML = document.querySelector("#analogie").value;
+    })
+
+    document.querySelector("#valeurAnalogie").addEventListener('keyup', function (e) {
+        console.log("Champ valeurAnalogie modifié");
+
+        document.querySelector("#valeurAnalogieSuggeree").innerHTML = document.querySelector("#valeurAnalogie").value;
+    })
+    console.log(analogies);
+    //manière dont il va envoyer dans ton data.json ou data.js, la nouvelle analogie
+    analogies.forEach(function afficheNote(analogie) {
+
+        console.log("Si j'étais " + analogie);
+        console.log("<section><h2>Si j’étais " + analogie + ", je serais [une valeur de l’analogie].</h2></section>");
+
+        document.querySelector('.liste-analogies').innerHTML += "<section><h2>Si j’étais " + analogie + ", je serais [une valeur de l’analogie].</h2></section>";
+
+    })
+    //detecte quand tu appuis sur le bouton d'envoie
+    data1.forEach(function afficheNote(analogie) {
+        document.querySelector(".btn-submit").addEventListener("click", function(submit) {
+
+          setTimeout(function (){
+            document.querySelector('#list-new-analogies').innerHTML +=  "<section id='new'><p>Si j’étais " + document.querySelector("#analogie").value + ", je serais...</p><h2 class='analogie'>" + document.querySelector("#valeurAnalogie").value + "</h2><p class='text'>"+ document.querySelector("#descriptionanalogie").value +" .</p><img src="+document.querySelector("#imagesanalogie").value+" alt='' class='img'></section>"});
+          console.log()
+      })
+    })
+    
+
+
+</script>
+<footer>
+    <div class="footer-right">
+        <a href="#" class="legal-link" onclick="openModal()">Mentions légales</a>
+      </div>
+      <div id="modal" class="modal">
+        <div class="modal-content">
+           <span class="close" onclick="closeModal()">&times;</span>
+           <p class="legal-text">Mentions légales</p>
+            <br> 2 rue Albert Einstein, 77420 Champs-sur-Marne, France
+        <br>
+        Informations de l'hébergeur : 
+        <br> Identité : Université Gustave Eiffel
+        <br> Adresse : 2 rue Albert Einstein, 77420 Champs-sur-Marne, France
+        <br> Téléphone : +33 (0)1 60 95 75 00
+        <br> Adresse mail : webmaster@univ-eiffel.fr
+        <br> Conformément à l'article 15 du Règlement général sur la protection des données (RGPD) du 27 avril 2016, vous disposez d'un droit d'accès aux informations 
+             vous concernant. Si vous trouvez que ces informations sont incorrectes, l'article 16 du RGPD vous permet de les modifier ou de les supprimer. Dans ce cas, 
+            merci de contacter le Directeur de la Communication : com@univ-eiffel.fr.
+            <br> Pour toute question relative à la collecte ou au traitement de vos données personnelles par le site web, vous pouvez contacter le responsable de la 
+             protection des données du projet : philippe.gambette@univ-eiffel.fr.
+            <br> Les fichiers détenus par l'Université Gustave Eiffel et Philippe Gambette qui comportent des données à caractère personnel ne seront jamais transmis à 
+             des tiers et ne feront jamais l'objet d'une commercialisation.
+            <br> Lors de la consultation du site, des cookies sont déposés sur votre ordinateur, votre mobile ou votre tablette.
+            <br> Modalités de traitement des données à caractère personnel: 
+        </div>
+      </div>
+</footer>
+
+
+
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
